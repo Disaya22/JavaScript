@@ -1,0 +1,51 @@
+spread operator allows an iterable such as an array or string 
+to be expanded in to separate elements
+
+In other word, spread operator helps us unpack the elements into an individual element.
+
+example 1
+if we need to find the maximum number in an array by using Math.max() method
+
+#file Start.js
+let numbers = [1, 2, 3, 4, 5];
+let max = Math.max(numbers);
+console.log(max);
+
+result: NaN
+
+We get NaN as a result because we can’t place an array directly within this method.
+
+However by utilizing the spread operator, we can unpack the array to an individual element
+
+#file Start.js
+let numbers = [1, 2, 3, 4, 5];
+let max = Math.max(...numbers);
+console.log(max);
+
+or
+#file Start.js
+let numbers = [1, 2, 3, 4, 5];
+let max = Math.max(...numbers);
+let min = Math.min(...numbers);
+console.log(max);
+console.log(min);
+
+
+example 2
+let username = "Anntonia";
+let letters = [...username];
+console.log(letters);
+
+////we got an array of alphabets
+
+
+example 3
+We can combine 2 arrays by using spread operator.
+
+#file Start.js
+let fruits = ["apple", "orange", "banana"];
+let vegetables = ["carrots", "celery", "potatoes"];
+
+let food = [...fruits, ...vegetables, 'eggs', 'milk'];
+console.log(food)
+
