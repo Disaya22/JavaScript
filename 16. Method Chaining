@@ -1,0 +1,26 @@
+Method Chaining = Calling one method after another in one continuous line of code.
+Method Chaining helps us avoid creating named variables.
+
+
+#file Start.js
+
+//create user input
+let username = window.prompt("Enter your username: ");
+
+----- NO METHOD CHAINING -----
+username = username.trim(); //delete all blank space 
+let letter = username.charAt(0); //select only 1st character (index 0)
+letter = letter.toUpperCase(); // make the 1st char (index 0) become uppercase
+
+let extraChars = username.slice(1); //select characters from 1st index to the last index
+extraChars = extraChars.toLowerCase(); //make extraChars become lowercase
+username = letter + extraChars; //create new “username” from concatenating letter and extraChars
+
+console.log(username);
+
+----- METHOD CHAINING -----
+username = username.trim().charAt(0).toUpperCase() + username.trim().slice(1).toLowerCase();
+
+console.log(username);
+
+
