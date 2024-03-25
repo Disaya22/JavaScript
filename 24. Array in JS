@@ -1,0 +1,63 @@
+Array is a variable-like structure that can hold more than 1 value.
+
+#file Start.js
+
+1. Create an array
+let fruits = ['apple','banana','coconut'];
+console.log(fruits)
+
+2. Index
+let fruits = ['apple','banana','coconut'];
+console.log(fruits[0]);
+console.log(fruits[1]);
+console.log(fruits[2]);
+
+fruits[0] = 'avocado';
+console.log(fruits[0]);
+console.log(fruits[1]);
+console.log(fruits[2]);
+
+
+3. Array methods
+push: add the last index
+pop: delete the last index
+unshift: add to the beginning
+shift: delete an element from the beginning
+
+4. length: find the number of members in an array
+arrayname.length
+
+5. indexOf: find the index of an element
+arrayname.indexOf(element)
+
+6. iterate an array: using for loop to get each element of an array
+
+7. enhanced for loop: shortcut to displaying the element of an array
+let fruits = ['apple','banana','coconut'];
+
+#file Start.js
+for(let fruit of fruits){
+    console.log(fruit);
+}
+
+
+8. sort: method to sort 
+arrayname.sort();
+
+9. reverse sort: method to sort elements in reverse order
+arrayname.reverse();
+
+#file Start.js
+let fruits = ['apple','banana','coconut'];
+
+fruits.reverse();
+
+for(let fruit of fruits){
+    console.log(fruit);
+}
+
+
+
+
+
+
