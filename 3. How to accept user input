@@ -1,1 +1,21 @@
+commonly, there are 2 ways to get input from users.
+
+1. window prompt
+
+#file Start.js
+let username = window.prompt("What's your username?");
+console.log(username);
+
+
+2. HTML textbox
+
+#file Start.js
+let username;
+
+document.getElementById("mySubmit").onclick = function(){
+    username = document.getElementById("myText").value;
+//console.log(username);
+    document.getElementById("myH1").textContent = `Hello ${username}`
+}
+
 
