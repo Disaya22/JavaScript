@@ -1,0 +1,124 @@
+#file Start.js
+const textBoxElem = document.getElementById("textBox");
+const toFahrenheitElem = document.getElementById("toFahrenheit");
+const toCelsiusElem = document.getElementById("toCelsius");
+const resultElem = document.getElementById("result");
+
+let temp;
+
+function convert(){
+   
+    if(toFahrenheitElem.checked){
+        temp = Number(textBoxElem.value);
+        temp = (temp *9 /5) + 32;
+
+
+        //resultElem.textContent = "You selected to Fahrenheit";
+        resultElem.textContent = temp.toFixed(1)+ "°F";
+		//เราแทรกเครื่องหมายวงกลมโดย window: Alt + 0176
+    }
+
+
+    else if(toCelsiusElem.checked){
+        temp = Number(textBoxElem.value);
+        temp = (temp-32)*5/9;
+
+
+        //resultElem.textContent = "You selected to Celsius";
+        resultElem.textContent = temp.toFixed(1)+ "°C";
+    }
+
+
+    else{
+        resultElem.textContent = "Select a unit"; //.innerText .textContent
+    }
+}
+
+
+
+#file index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form>
+        <h1>Temperature Conversion</h1>
+        <input type="number" id="textBox" value="0"><br>
+       
+        <input type="radio" id="toFahrenheit" name="unit">
+        <label for="toFahrenheit">Celsius ➡ Fahrenheit</label><br>
+
+        <input type="radio" id="toCelsius" name="unit">
+        <label for="toCelsius">Fahrenheit ➡ Celsius</label><br>
+
+        <button type="button" onclick="convert()">submit</button>
+        <p id="result">...</p>
+
+    </form>
+
+    <script src="start.js"></script>
+</body>
+</html>
+
+
+#file style.css
+body{
+    font-family: cursive, sans-serif;
+    background-color: hsl(0, 67%, 89%);
+    color: #333;
+}
+
+h1{
+    color: #333;
+}
+
+form{
+    background-color:antiquewhite;
+    text-align: center;
+    max-width: 350px;
+    margin: auto;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px hsla(0, 0%, 0%, 0.3);
+
+}
+
+#textBox{
+    width: 50%;
+    text-align: center; /*--เลขตรงกลาง เลข 0-- */
+    font-size: 2em;
+    border: 2px solid hsla(0, 0%, 0%, 0.3);
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+label{
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+button{
+    margin-top: 15px;
+    background-color:hsl(0, 80%, 70%);
+    color:#fff;
+    font-size: 1.5em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: hsl(113, 29%, 48%);
+}
+
+#result{
+    font-size: 1.75em;
+    font-weight: bold;
+}
+
+
