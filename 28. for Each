@@ -1,0 +1,64 @@
+ForEach is a method used to iterate over the elements of an array and 
+apply a specified function which is callback function to each element.
+
+ForEach method helps us perform the specified action (= applied the function ) 
+for each element in an array.
+
+When you have an array, you can use the built-in for each method of arrays 
+and send each element through a call back to a function.
+
+array.forEach(callback)
+
+example 1
+#file Start.js
+const numbers = [1, 2, 3, 4, 5];
+
+numbers.forEach(display);
+
+function display(element){
+    console.log(element);
+}
+
+
+example  2
+#file Start.js
+const numbers = [1, 2, 3, 4, 5];
+function display(element){
+    console.log(element);
+}
+
+function double(element, index, array){
+    array[index] = element*2;
+}
+
+function square(element, index, array){
+    array[index] = Math.pow(element, 2)
+}
+
+
+numbers.forEach(square);
+numbers.forEach(display);
+
+
+example 3
+#file Start.js
+let fruits = ['apple', 'banana', 'coconut'];
+
+function display(element){
+    console.log(element);
+}
+
+function upperCase(element, index, array){
+    array[index] = element.toUpperCase();
+}
+
+function lowerCase(element, index, array){
+    array[index] = element.toLowerCase();
+}
+
+function capitalize(element, index, array){
+    array[index] = element.charAt(0).toUpperCase() + element.slice(1);
+}
+
+fruits.forEach(capitalize);
+fruits.forEach(display);
