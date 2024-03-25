@@ -1,0 +1,27 @@
+Math = built-in object that provides a collection of properties and methods
+
+for example:
+//console.log(Math.PI);
+//console.log(Math.E);  //euler
+
+
+#file Start.js
+Let x = 3.21;
+Let y = 2;
+Let z;
+
+//z = Math.round(x);
+//z = Math.floor(x);
+//z = Math.ceil(x);
+//z = Math.trunc(x);
+//z = Math.pow(x, y);
+//z = Math.sqrt(x);
+//z = Math.log(x);
+//z = Math.sin(x);
+//z = Math.cos(x);
+//z = Math.tan(x);
+//z = Math.abs(x); //absolute
+//z = Math.sign(x); //find a sign – or +
+let max = Math.max(x, y, z); //find max
+let min = Math.min(x, y, z); //find min
+
