@@ -1,0 +1,36 @@
+VS code : you will need a text-editor
+one text editor we use is VS code
+
+folder structure: we’ll begin at least 3 files: index.html style.css and start.js.
+we can link an external style sheet to our HTML file within the link tag. There is a relationship attribute shortened to rel.
+The relationship will be stylesheet, we are linking a stylesheet, 
+then we need the href attribute where the CSS file is located. 
+If the CSS file is located within the same folder, we only need the file’s name.
+Finally, we need to link the JavaScript file to our HTML file via a pair of script tag, 
+then we will set the source to be the name of the JS file.
+
+live server extension in VS code which makes the web page refresh automatically when we save any changes to our file
+right click at our html file, and click open with live server
+
+You should make your script element be able at the bottom of the body of your document
+just in case there’s an error with your JS file, you do want all of the HTML elements to at least render first before running js code
+
+console.log(): to output some text, you type console.log(), 
+you can use double quotes, single quotes or backticks.
+Go to your web page -> inspects -> console to see the result.
+
+window.alert(); we use this command to make a pop-up
+
+comment: we use as notes for yourself or for other developers
+    for one line comments
+//
+		
+		for multiply line comments
+/*  
+
+*/
+
+document.getElementById()
+we use this to select id from HTML file
+
+
