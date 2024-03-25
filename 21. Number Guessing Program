@@ -1,0 +1,41 @@
+#file Start.js
+const minNum = 1;
+const maxNum = 100;
+const answer = Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
+//random from 1 to 100, minNum for the case that doesn't start with 1
+
+let attempts = 0; //count how many times your try
+let guess;
+let running = true; //a boolean variable named running
+
+while(running){ //while true
+    
+    //create a user input
+    guess = window.prompt(`Guess a number between ${minNum} - ${maxNum}`);
+    //convert a user input into number datatype
+    guess = Number(guess);
+    
+    
+    //using 'if statement' to check user input
+    if(isNaN(guess)){ //if user input is not a number
+        window.alert("Please enter a valid number");
+    }
+    else if(guess < minNum || guess > maxNum){ // if user input is lower or higher than a boundary 
+        window.alert("Please enter a valid number");
+    }
+    else{ //if user input is correct 
+        attempts++; 
+        
+        //check whether user input is equal to the answer or not 
+        if(guess < answer){
+            window.alert("TOO LOW! TRY AGAIN!");
+        }
+        else if(guess > answer){
+            window.alert("TOO HIGH! TRY AGAIN!");
+        }
+        else{
+            window.alert(`CORRECT! The answer was ${answer}. It took you ${attempts} attempts`);
+            running = false;
+        }
+    }
+}
