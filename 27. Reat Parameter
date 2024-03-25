@@ -1,0 +1,79 @@
+Rest parameters (...rest) allows a function work with a variable number of arguments 
+by bundling them into an array.
+
+spread operator = unpacking an array into separate elements
+rest parameter = bundling separate element into an array
+
+example 1
+#file Start.js
+const food1 = "pizza";
+const food2 = "hamburger";
+const food3 = "hotdog";
+const food4 = "sushi";
+const food5 = "ramen";
+
+
+function fridge(...foods){
+    console.log(foods)
+}
+
+fridge(food1, food2, food3, food4, food5);
+
+or
+#file Start.js
+const food1 = "pizza";
+const food2 = "hamburger";
+const food3 = "hotdog";
+const food4 = "sushi";
+const food5 = "ramen";
+
+function getFood(...foods){
+    return foods;
+}
+
+const myFoods = getFood(food1, food2, food3, food4, food5) //invoke getFood()
+console.log(myFoods);
+
+
+example 2
+#file Start.js
+function sum(...numbers){
+    let total = 0;
+    for(let number of numbers){
+        total += number;
+    }
+    return total/ numbers.length;
+}
+
+
+const result = sum(1, 3, 5, 7, 9); //invole sum()
+console.log("your average is " + result);
+
+
+example 3
+We can use rest parameter to combine strings together
+
+#file Start.js
+function combineStrings(...string){
+    return string
+}
+const fullName = combineStrings('Anntonia', 'Porsild', 'Thailand');
+console.log(fullName);
+
+//we got an array
+//[ 'Anntonia', 'Porsild', 'Thailand' ]
+
+we will call join() function to make our result become a string
+
+#file Start.js
+function combineStrings(...string){
+    return string.join(" ");
+}
+const fullName = combineStrings('Anntonia', 'Porsild', 'Thailand');
+console.log(fullName);
+
+//we will get a string
+//Anntonia Porsild Thailand
+
+
+
