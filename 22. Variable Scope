@@ -1,0 +1,39 @@
+Variable scope is where a variable is recognized and accessible.
+We will discuss between a local scope and a global scope.
+
+example 1
+#file Start.js
+let x = 1;
+let x = 2;
+
+⦁	If we run this we would find a syntax error identifier 
+that x has already been declared.
+⦁	We can not reuse the same variable names in your program 
+as long as they're within different scopes.
+
+example 2
+function fn1(){
+    let x = 1;
+    console.log(x);
+}
+
+function fn2(){
+    let x = 2;
+    console.log(x);
+}
+
+fn1();
+fn2();
+
+⦁	If we invoke function fn1 and fn2, we will get 1 and 2 as results
+⦁	Eventhough we have two variables with the same name in our program, 
+that's legal as long as they have different scopes.
+⦁	Any variable declared inside of a function has a local scope or 
+anytime we declare a variable within a set of curly braces 
+there's no naming conflicts because they're within different scopes.
+
+⦁	a global scope for a variable is any variable declared outside of a function 
+
+
+
+
