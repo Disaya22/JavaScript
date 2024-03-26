@@ -1,0 +1,58 @@
+Arrow Function is a concise way to writhe function expressions.
+It's good for simple functions that we use only once 
+
+(parameter) => code
+
+example 1 
+#file Start.js
+1. Function Declaraion 
+function say(){
+  console.log("Hello, the Universe")
+}
+
+
+2. Function Expression 
+let say = function(){
+  console.log("Hello, the Universe")
+}
+
+
+3. Arrow Function 
+let say = () => {
+  console.log("Hello, the Universe")
+}
+
+or
+
+const say = (name) =>{
+    console.log(`Hello, miss ${name} !!`);
+}
+say("Thailand"); 
+
+
+example 2
+#file Start.js
+setTimeout(callback, time) 
+we can use arrow function as callback
+
+setTimeout( ()=> {console.log("Hello, the Universe")}, 2000);
+
+example 3
+#file Start.js 
+const numbers = [1, 2, 3, 4, 5, 6];
+
+let sqr = numbers.map( (elem)=> {return Math.pow(elem,2);})
+
+let even = numbers.filter( (elem)=> {return elem % 2 === 0;})
+
+let sum = numbers.reduce( (acumulator, elem)=> {return acumulator + elem;})
+
+console.log(sqr);
+console.log(even);
+console.log(sum);
+
+
+
+
+
+
