@@ -1,0 +1,182 @@
+1. Static keyword is a keyword that defined properties or methods belonging to a class itself 
+rather than the object created from that class (the class owns anything static, not the objects).
+
+example 1
+#file Start.js
+
+2. we will create a class for math utilities
+
+class mathUtil{
+   
+}
+
+
+3. and then create our own version of PI using static keyword
+
+class mathUtil{
+    static PI = 3.1415;
+}
+
+
+4. We have to access the static properties by its class.
+we don’t have to create an object to access PI
+
+class mathUtil{
+    static PI = 3.1415;
+}
+console.log(mathUtil.PI);
+
+
+5. creating a static method
+
+class mathUtil{
+    static PI = 3.1415;
+    static getDiameter(radius){
+        return radius * 2;
+    }
+    static getCircumference(radius){
+        return 2 * this.PI * radius;
+    }
+}
+console.log(mathUtil.PI);
+console.log(mathUtil.getDiameter(4));
+console.log(mathUtil.getCircumference(4));
+
+
+example 2
+#file Start.js
+
+6. We will create a class of user.
+
+class User{
+    static userCount = 0;
+    constructor (username){
+        this.username = username;
+        User.userCount++;
+    }
+}
+
+7. Let’s create some user objects
+
+class User{
+    static userCount = 0;
+    constructor (username){
+        this.username = username;
+        User.userCount++;
+    }
+}
+
+const user1 = new User("Anntonia");
+console.log(user1.username);
+
+
+8. Let’s try to access userCount
+
+class User{
+    static userCount = 0;
+    constructor (username){
+        this.username = username;
+        User.userCount++;
+    }
+}
+
+const user1 = new User("Anntonia");
+
+
+console.log(user1.username);
+//let’s try to access userCount
+console.log(user1.userCount);
+
+We will get:
+Anntonia
+undefined
+
+
+9. Because user1 doesn't have userCount as a property.
+
+10. userCount is static that means it belongs to the class, not any object created from the class.
+
+11. To access userCount, we have to type the name of the class.
+
+class User{
+    static userCount = 0;
+
+    constructor (username){
+        this.username = username;
+        User.userCount++;
+    }
+}
+
+const user1 = new User("Anntonia");
+const user2 = new User("Anchilee");
+const user3 = new User("Anna");
+
+console.log(user1.username);
+console.log(user2.username);
+console.log(user3.username);
+
+//let’s try to access userCount
+//console.log(user1.userCount); //error
+//to access userCount
+console.log(User.userCount);
+
+We will get:
+Anntonia
+Anchilee
+Anna
+3
+
+
+12. creating a normal method
+
+class User{
+    static userCount = 0;
+
+    constructor (username){
+        this.username = username;
+        User.userCount++;
+    }
+
+	//let’s create a normal method
+    sayHello(){
+        console.log("Hello the Universe! It's me " + this.username);
+    }
+}
+const user1 = new User("Anntonia");
+const user2 = new User("Anchilee");
+const user3 = new User("Anna");
+
+user1.sayHello();
+user2.sayHello();
+user3.sayHello();
+
+
+13. creating a static method
+
+class User{
+    static userCount = 0;
+
+    constructor (username){
+        this.username = username;
+        User.userCount++;
+    }
+    sayHello(){
+        console.log("Hello the Universe! It's me " + this.username);
+    }
+	
+	//let’s create a static method
+    static getUserCount(){
+        console.log(`There are ${User.userCount} users online`)
+    }
+}
+const user1 = new User("Anntonia");
+const user2 = new User("Anchilee");
+const user3 = new User("Anna");
+
+14. To access the static method, we have to type 
+the name of the class dot name of the function.
+
+//to access static method
+User.getUserCount();
+
+
