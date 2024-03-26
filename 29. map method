@@ -1,0 +1,52 @@
+The map method .map() accepts a callback and applies the function 
+to each element of an array, then returns a new array.
+
+Since the map method would return a new array, 
+so we should create an array to store the result.
+
+The map method is really similar to forEach but after completion 
+the map method returns a new array, so we still have our original array 
+whereas in forEach we will change them. That is the key difference.
+
+The map method is good if we want to preserve the original array.
+
+.map(callback)
+
+example
+#file Start.js
+const numbers = [1, 2, 3, 4, 5];
+
+function square(element){
+    return Math.pow(element, 2);
+}
+
+//the map method will return a new array,
+//so we must create a new array to store the results
+const result = numbers.map(square);
+
+console.log(result);
+
+example 2
+#file Start.js
+const students = ["Nicaragua", "Thailand", "Australia",];
+function upperCase(elem){
+    return elem.toUpperCase();
+}
+function lowerCase(elem){
+    return elem.toLowerCase();
+}
+const result = students.map(lowerCase);
+console.log(result);
+
+example 3
+#file Start.js
+const dates = ["2024-1-10", "2025-2-20", "2026-3-30"];
+function formatDate(elem){
+    const parts = elem.split("-");
+    return `${parts[1]}/${parts[2]}/${parts[0]}}`;
+}
+const formatedDate = dates.map(formatDate);
+console.log(formatedDate);
+
+
+
