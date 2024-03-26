@@ -1,0 +1,98 @@
+1. Inheritance allows a new class to inherit properties and methids from an existing class 
+(parent class => child class)
+
+2. Inheritance make our code is reuseable because we don't need to keep on repeating 
+the same properties and methods, if all the children share them.
+
+3. saving a lot lines of code 
+4. dry principle
+
+5. We use keyword extends
+
+example 1
+#file Start.js
+6. We create class Rabbit, Python and Shark.
+
+class Animal{
+    alive = true;
+    eat(){
+        console.log("This " + this.name + " is eating")
+    }
+    sleep(){
+        console.log("This " + this.name + " is sleeping")
+    }
+}
+
+
+class Reptile extends Animal{
+    name = "Python";
+}
+
+
+class Fish extends Animal{
+    name = "Shark";
+}
+
+
+class Mammal extends Animal{
+    name = "Rabbit"
+}
+
+7. They can access to the properties and methods of Animal class
+
+const python = new Reptile();
+const shark = new Fish();
+const rabbit = new Mammal();
+
+console.log(rabbit.alive);
+python.eat();
+shark.sleep();
+
+8. The children class can have their own unique properties and methods too.
+
+class Animal{
+    alive = true;
+    eat(){
+        console.log("This " + this.name + " is eating")
+    }
+    sleep(){
+        console.log("This " + this.name + " is sleeping")
+    }
+}
+
+class Reptile extends Animal{
+    name = "Python";
+    crawl(){
+        console.log("This " + this.name + " can crawl")
+    }
+}
+
+class Fish extends Animal{
+    name = "Shark";
+    swim(){
+        console.log("This " + this.name + " can swim")
+    }
+}
+
+class Mammal extends Animal{
+    name = "Rabbit";
+    jump(){
+        console.log("This " + this.name + " can jump")
+    }
+}
+
+const python = new Reptile();
+const Shark = new Fish();
+const rabbit = new Mammal();
+
+rabbit.eat();
+rabbit.sleep();
+rabbit.jump();
+Shark.jump();
+
+We will get:
+This Rabbit is eating
+This Rabbit is sleeping
+This Rabbit can jump
+error
+
