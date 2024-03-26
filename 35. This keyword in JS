@@ -1,0 +1,77 @@
+1. The THIS keyword is used to refer to the object where THIS is used.
+
+ClassName.AttributeName = this.AttributeName
+
+example 1
+#file Start.js
+const person1 = {
+    name: "Spongebob",
+    favFood: "hamburgers",
+    sayHello: function(){console.log(`Hi! I am ${name}`)},
+}
+
+//invoking their sayHello function
+person1.sayHello(); //get an error
+
+
+2. Inside of this object (of person one), 
+if you want to access one of these properties, 
+you need to precede the properties with this.the name of property.
+
+example 2
+#file Start.js
+const person1 = {
+    name: "Spongebob",
+    favFood: "hamburgers",
+    sayHello: function(){console.log(`Hi! I am ${this.name}`)},
+}
+
+//invoking their sayHello function
+person1.sayHello();
+
+
+3. It’s would like we saying person1.name.
+Because THIS is a reference to the object we within.
+
+example 3
+#file Start.js
+const person1 = {
+    name: "Spongebob",
+    favFood: "hamburgers",
+    sayHello: function(){console.log(`Hi! I am ${person1.name}`)},
+}
+
+//invoking their sayHello function
+person1.sayHello();
+
+
+4. The THIS keyword doesn't work with arrow function.
+
+example 4
+#file Start.js
+
+const person1 = {
+    name: "Spongebob",
+    favFood: "hamburgers",
+    sayHello: function(){console.log(`Hi! I am ${person1.name}`)},
+    eat: function(){console.log(`${this.name} is eating ${this.favFood}`)}
+}
+
+//the THIS keyword doesn't work with arrow function
+const person2 = {
+    name: "Patrick",
+    favFood: "pizza",
+    sayHello: function(){console.log(`Hi! I am ${this.favFood}`)},
+    eat: () => {console.log(`${this.name} is eating ${this.favFood}`)}
+}
+
+
+
+
+//invoking their sayHello function
+person1.sayHello();
+person1.sayHello();
+person1.eat();
+person2.eat();
+
+
