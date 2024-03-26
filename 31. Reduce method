@@ -1,0 +1,37 @@
+The reduce method reduce the elements of an array to a single value.
+
+NameOfArrat.reduce(callback);
+
+example 1
+#file Start.js
+const prices = [5, 30, 10, 25, 15, 20];
+
+//accumulator is a previous value which is set defualt to 0 and elem is a next value which is 5
+//var accumulator = 0; //we can set the first value here
+function sum(accumulator, elem){
+    // accumulator = accumulator + elem;
+    // return accumulator
+
+    // accumulator += elem
+    // return accumulator;
+   
+    // var accumulator = 0; //do not define accumulator = 0 here
+
+    return accumulator + elem
+}
+
+const total = prices.reduce(sum);
+console.log(total);
+
+example 2
+#file Start.js
+const scores = [75, 50, 100, 80, 65, 95];
+
+function getMax(maxScore, elem){
+    return Math.max(maxScore, elem);
+}
+
+const max = scores.reduce(getMax);
+console.log(max);
+
+
