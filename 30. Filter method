@@ -1,0 +1,37 @@
+The filter mathod creates a new array by filtering out elements.
+
+NameOfArray.filter(callback)
+
+example 1
+#file Start.js
+let numbers = [1, 2, 3, 4, 5, 6, 7];
+function isEven(elem){
+    return elem % 2 === 0;
+}
+function isOdd(elem){
+    return elem % 2 !== 0;
+}
+
+const evenNum = numbers.filter(isEven);
+const oddNum = numbers.filter(isOdd);
+
+console.log(evenNum);
+console.log(oddNum);
+
+example 2 
+#file Start.js
+const words = ['apple', 'orange', 'kiwi', 'banana', 'pomegranate', 'coconut',];
+
+function getShort(elem){
+    return elem.length <= 6;
+}
+function getLongWords(element){
+    return element.length > 6;
+}
+
+const shortWord = words.filter(getShort);
+const longWords = words.filter(getLongWords);
+
+console.log(shortWord);
+console.log(longWords);
+
