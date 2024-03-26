@@ -1,0 +1,157 @@
+The constructor is a special method for defining the properties and methods of object.
+
+From the previous lessons, we create objects one by one
+
+If we want a lot of object, creating an object one by one can be a lot of work.
+
+So, we would use a CONSTRUCTOR to construct the object automatically.
+
+All we need to do to construct these objects is pass in some unique data 
+to the constructor to construct these objects.
+
+example 1
+#file Start.js
+1. We'll create a function and then set up some parameters.
+
+function Car(make, model, year, color){}
+
+
+2. make, model, year, color => these are arguments we'll receive when construct the car object
+
+3. To assign these properties, we're going to use the this keyword
+
+function Car(make, model, year, color){
+    this.make = make;
+    this.model = model;
+    this.year = year;
+    this.color = color;
+}
+
+
+4. We can define the properties and methods of objects we create.
+
+5. To use this constructor, we will create an instance of object. 
+And we need to pass some arguments.
+
+function Car(make, model, year, color){
+    this.make = make;
+    this.model = model;
+    this.year = year;
+    this.color = color;
+}
+
+const car1 = new Car("Honda", "Jazz", 2024, "red");
+console.log(car1.make);
+console.log(car1.model);
+console.log(car1.year);
+console.log(car1.color);
+
+
+6. Our car constructor is a reusable method 
+where we can define the properties and methods of objects we create.
+
+function Car(make, model, year, color){
+    this.make = make;
+    this.model = model;
+    this.year = year;
+    this.color = color;
+}
+
+const car1 = new Car("Honda", "Jazz", 2024, "red");
+const car2 = new Car("Mazda", "2", 2025, "black");
+
+console.log(car1.make);
+console.log(car1.model);
+console.log(car1.year);
+console.log(car1.color);
+
+console.log(car2.make);
+console.log(car2.model);
+console.log(car2.year);
+console.log(car2.color);
+
+
+7. make, model, year, color => You can name these parameters anything
+Such as a, b, c, d
+
+function Car(a, b, c, d){
+    this.make = a;
+    this.model = b;
+    this.year = c;
+    this.color = d;
+}
+
+
+const car1 = new Car("Honda", "Jazz", 2024, "red");
+const car2 = new Car("Mazda", "2", 2025, "black");
+
+
+console.log(car1.make);
+console.log(car1.model);
+console.log(car1.year);
+console.log(car1.color);
+
+
+console.log(car2.make);
+console.log(car2.model);
+console.log(car2.year);
+console.log(car2.color);
+
+
+8. Let’s add a function in our constructor
+function Car(make, model, year, color){
+
+    this.make = make;
+    this.model = model;
+    this.year = year;
+    this.color = color;
+    //let's add a method
+    this.drive = function(){console.log(`ํYou drive the ${this.model}`);}
+}
+const car1 = new Car("Honda", "Jazz", 2024, "red");
+const car2 = new Car("Mazda", "Mazda2", 2025, "black");
+
+car1.drive();
+car2.drive();
+
+
+All Code
+//we'll create a function and then set up some parameters
+function Car(make, model, year, color){
+    //make, model, year, color
+    //these are arguments we'll receive when
+    //construct the car object
+
+    //to assign these properties, we're going
+    //to use the this keyword
+    //our car constructor is a reusable method where
+    //we can define the properties and methods
+    //of objects we create
+    this.make = make;
+    this.model = model;
+    this.year = year;
+    this.color = color;
+    //let's add a method
+    this.drive = function(){console.log(`ํYou drive the ${this.model}`);}
+}
+
+//to use this constructor i will create an instance of an object
+//we'll need to pass in some arguments to Car method
+const car1 = new Car("Honda", "Jazz", 2024, "red");
+const car2 = new Car("Mazda", "Mazda2", 2025, "black");
+
+console.log(car1.make);
+console.log(car1.model);
+console.log(car1.year);
+console.log(car1.color);
+
+console.log(car2.make);
+console.log(car2.model);
+console.log(car2.year);
+console.log(car2.color);
+
+car1.drive();
+car2.drive();
+
+
+
