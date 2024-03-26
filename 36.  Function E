@@ -1,0 +1,49 @@
+Function declaration = define a reusable block of code that performs a specific task
+
+Function expression = a way to define function as values or variables
+
+Function expression is used in 
+  1. Callbacks in asynchronous operations
+  2. Higher-Order Functions
+  3. Closures
+  4. Event Listeners
+
+
+example 1
+#file Start.js
+
+1. function declaration
+const numbers = [1, 2, 3, 4, 5, 6];
+function square(elem){
+    return Math.pow(elem, 2)
+}
+const sqr = numbers.map(square);
+console.log(sqr);
+
+2. function expression
+const numbers = [1, 2, 3, 4, 5, 6];
+const sqr = numbers.map(function(elem){
+    return Math.pow(elem, 2)
+})
+console.log(sqr);
+
+
+example 2
+#file Start.js
+const numbers = [1, 2, 3, 4, 5, 6];
+const isEven = numbers.filter(function(elem){
+    return elem % 2 === 0;
+})
+console.log(isEven);
+
+
+example 3 
+#file Start.js
+const numbers = [1, 2, 3, 4, 5, 6];
+const total = numbers.reduce(function(accumulator,elem){
+    return accumulator + elem;
+})
+console.log(total);
+
+
+
