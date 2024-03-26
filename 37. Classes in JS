@@ -1,0 +1,154 @@
+1. Class in JS is an ES6 feature that provides a more structured 
+and cleaner way to work with objects compared to 
+traditional constructor functions (that we're nornamlly used to )
+
+2. Class are going to be really helpful when we reach future topics 
+such as the static keyword, encapsulation and inheritance.
+
+3. Our class will serve as a blueprint.
+
+4. To create a class, we type class followed by class's name.
+
+class Product{}
+
+5. To use a constructor, we can use the constructor keyword within our class.
+
+class Product{
+  constructor()
+}
+
+
+6. We will assign the properties of this.name = the name parameter that we receive.
+
+class Product{
+    constructor(name, price){
+        this.name = name;
+        this.price = price;
+    }
+}
+
+7. We can also create a function inside our class.
+
+8. We don’t need to use the function keyword inside the class
+
+class Product{
+    constructor(name, price){
+        this.name = name;
+        this.price = price;
+    }
+    displayProduct(){
+        console.log(`Product: ${this.name}`);
+        console.log(`Price: $${this.price}`);
+    }
+}
+
+
+9. Let's create some product object
+
+10. To create a new object, we have to use the new keyword
+
+11. The constructor is called automatically.
+
+12. We need to pass a name and a price as arguments.
+
+class Product{
+    constructor(name, price){
+        this.name = name;
+        this.price = price;
+    }
+    displayProduct(){
+        console.log(`Product: ${this.name}`);
+        console.log(`Price: $${this.price}`);
+    }
+}
+//let's create some product object
+const product1 = new Products("shirt", 199);
+const product2 = new Products("pants", 299);
+
+
+All Code
+class Products{
+    //to use a constructor,
+    //we can use the constructor keyword within our class
+    constructor(name, price){ //name and price for each product
+        //we will assign the properties of this.name = the name parameter that we receive
+        this.name = name;
+        this.price = price;
+    }
+
+    //create a function
+    displayProduct(){
+        console.log(`Product: ${this.name}`);
+        console.log(`Price: $${this.price}`);
+    }
+}
+
+//let's create some product object
+//to create a new object, we have to use the new keyword
+//the constructor is called automatically
+//you need to pass a name and a price as arguments
+const product1 = new Products("shirt", 199);
+const product2 = new Products("pants", 299);
+
+//let's invoke the displayProduct function
+product1.displayProduct(); //it's work!!
+product2.displayProduct();
+
+
+13. Challenge Round: add another method
+      1. We’ll create a method to calculate a total including tax 
+      2. This method will have one parameter => saletax
+      3. Tax = 0.05
+
+//create a challenge function inside a class
+calTotal(saleTax){
+  return this.price + (this.price * saleTax);
+  }
+}
+
+//create a saleTax variable outside a class
+const saleTax = 0.05;
+
+All Code 
+class Products{
+    //to use a constructor,
+    //we can use the constructor keyword within our class
+    constructor(name, price){ //name and price for each product
+        //we will assign the properties of this.name = the name parameter that we receive
+        this.name = name;
+        this.price = price;
+    }
+
+    //create a function
+    //inside a class, we don't need a function keyword
+    displayProduct(){
+        console.log(`Product: ${this.name}`);
+        console.log(`Price: $${this.price.toFixed(2)}`);
+    }
+
+    //challenge
+    calTotal(saleTax){
+        return this.price + (this.price * saleTax);
+    }
+}
+
+//create a saleTax variable 
+const saleTax = 0.05;
+
+//let's create some product object
+//to create a new object, we have to use the new keyword
+//the constructor is called automatically
+//you need to pass a name and a price as arguments
+const product1 = new Products("shirt", 199);
+const product2 = new Products("pants", 299);
+const product3 = new Products("underwear", 99);
+
+//let's invoke the displayProduct function
+product1.displayProduct(); //it's work!!
+//product2.displayProduct();
+//product3.displayProduct();
+
+const total = product1.calTotal(saleTax);
+console.log("shirt's total price (with tax): " + total.toFixed(2) );
+
+
