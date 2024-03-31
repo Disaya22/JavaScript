@@ -1,0 +1,582 @@
+45. getter and setter
+1. getter is a special method that makes a property readable
+2. setter is a special method that makes a property writable
+3. we can use getter and setter to validate and modify a value when reading/writing a property
+4. it helps with validation when creating an object or updating one of its properties.
+
+#file start.js
+
+1. we will create a class and we need a constructor 
+
+class Rectangle{
+    constructor(width, height){
+        this.width = width;
+        this.height = height;
+    }
+}
+
+
+2. create an instance of Rectangle and then add some garbage values 
+don't make sense.
+3. in this case, we expect a positive number
+
+class Rectangle{
+    constructor(width, height){
+        this.width = width;
+        this.height = height;
+    }
+}
+
+//create an instance of Rectangle
+const rectangle = new Rectangle(-11, "pizza");
+
+console.log(rectangle.width);
+console.log(rectangle.height);
+
+
+result:
+-11
+pizza
+
+
+4. that’s getter and setter come in!
+5. begin with setter
+
+class Rectangle{
+    constructor(width, height){
+        this.width = width;
+        this.height = height;
+    }
+
+
+    set width(newWidth){
+        if( newWidth > 0){
+            this._width = newWidth;
+        }
+        else{
+            console.error("width must be a positive");
+        }
+    }
+
+
+    set height(newHeight){
+        if( newHeight > 0){
+            this._height = newHeight;
+        }
+        else{
+            console.error("height must be a positive");
+        }
+    }
+}
+
+
+//create an instance of Rectangle
+const rectangle = new Rectangle(-11, "pizza");
+
+
+console.log(rectangle.width);
+console.log(rectangle.height);
+
+result:
+width must be a positive
+height must be a positive
+undefined
+undefined
+
+6. let’s set width and height proper way
+
+class Rectangle{
+    constructor(width, height){
+        this.width = width;
+        this.height = height;
+    }
+
+
+    set width(newWidth){
+        if( newWidth > 0){
+            this._width = newWidth;
+        }
+        else{
+            console.error("width must be a positive");
+        }
+    }
+
+
+    set height(newHeight){
+        if( newHeight > 0){
+            this._height = newHeight;
+        }
+        else{
+            console.error("height must be a positive");
+        }
+    }
+}
+
+
+//create an instance of Rectangle
+const rectangle = new Rectangle(11, 5);
+
+
+console.log(rectangle.width);
+console.log(rectangle.height);
+
+1. there are no error shown up
+2. but when we access width and height, those numbers still don’t show up.
+3. that’s because these properties are writable via setter, but they’re not readable
+4. so now getter come in
+
+class Rectangle{
+    constructor(width, height){
+        this.width = width;
+        this.height = height;
+    }
+
+    set width(newWidth){
+        if( newWidth > 0){
+            this._width = newWidth;
+        }
+        else{
+            console.error("width must be a positive");
+        }
+    }
+
+    set height(newHeight){
+        if( newHeight > 0){
+            this._height = newHeight;
+        }
+        else{
+            console.error("height must be a positive");
+        }
+    }
+
+    get width(){
+        return this._width;
+    }
+
+    get height(){
+        return this._height;
+    }
+}
+
+//create an instance of Rectangle
+const rectangle = new Rectangle(11, 5);
+
+console.log(rectangle.width);
+console.log(rectangle.height);
+
+11
+5
+
+
+5. now by using setter, we can even update those values later
+
+class Rectangle{
+    constructor(width, height){
+        this.width = width;
+        this.height = height;
+    }
+
+
+    set width(newWidth){
+        if( newWidth > 0){
+            this._width = newWidth;
+        }
+        else{
+            console.error("width must be a positive");
+        }
+    }
+
+
+    set height(newHeight){
+        if( newHeight > 0){
+            this._height = newHeight;
+        }
+        else{
+            console.error("height must be a positive");
+        }
+    }
+
+
+    get width(){
+        return this._width;
+    }
+
+
+    get height(){
+        return this._height;
+    }
+
+
+}
+
+
+//create an instance of Rectangle
+const rectangle = new Rectangle(11, 5);
+
+
+// using setter, we can even update those values later
+rectangle.width = 3;
+rectangle.height = 4;
+
+
+console.log(rectangle.width);
+console.log(rectangle.height);
+
+
+result:
+3
+4
+
+
+6. if we try to update those values to some garbage values like this
+7. we could see an error warning again and our instance (object) 
+retains its initial values that we previously assigned
+
+class Rectangle{
+    constructor(width, height){
+        this.width = width;
+        this.height = height;
+    }
+
+
+    set width(newWidth){
+        if( newWidth > 0){
+            this._width = newWidth;
+        }
+        else{
+            console.error("width must be a positive");
+        }
+    }
+
+
+    set height(newHeight){
+        if( newHeight > 0){
+            this._height = newHeight;
+        }
+        else{
+            console.error("height must be a positive");
+        }
+    }
+
+
+    get width(){
+        return this._width;
+    }
+
+
+    get height(){
+        return this._height;
+    }
+
+
+}
+
+
+//create an instance of Rectangle
+const rectangle = new Rectangle(11, 5);
+
+
+// using setter, we can even update those values later
+rectangle.width = -3;
+rectangle.height = "pizza";
+
+
+console.log(rectangle.width);
+console.log(rectangle.height);
+
+
+result:
+width must be a positive
+height must be a positive
+11
+5
+
+
+8. with getter, we can even use the property accessor that dot 
+to access a property that doesn’t necessarily exist 
+9. in this case, our area isn’t a property technically it not found within
+our constructor 
+10. but we can access it as if it was a property with a getter
+
+class Rectangle{
+    constructor(width, height){
+        this.width = width;
+        this.height = height;
+    }
+
+
+    set width(newWidth){
+        if( newWidth > 0){
+            this._width = newWidth;
+        }
+        else{
+            console.error("width must be a positive");
+        }
+    }
+
+
+    set height(newHeight){
+        if( newHeight > 0){
+            this._height = newHeight;
+        }
+        else{
+            console.error("height must be a positive");
+        }
+    }
+
+
+    get width(){
+        return this._width;
+    }
+
+
+    get height(){
+        return this._height;
+    }
+
+
+    get area(){
+        return this._width * this._height;
+    }
+
+
+}
+
+
+//create an instance of Rectangle
+const rectangle = new Rectangle(11, 5);
+
+
+// using setter, we can even update those values later
+rectangle.width = -3;
+rectangle.height = "pizza";
+
+
+console.log(rectangle.width);
+console.log(rectangle.height);
+
+
+//access a property that doesn’t necessarily exist
+console.log(rectangle.area);
+
+
+11. you can add additional logic too
+
+//add addtional logic
+    get width(){
+        return this._width.toFixed(2);
+    }
+
+
+    get height(){
+        return this._height.toFixed(2);
+    }
+
+
+    get area(){
+        return (this._width * this._height).toFixed(2);
+    }
+
+
+
+example1:
+class Rectangle{
+    constructor(width, height){
+        this.width = width;
+        this.height = height;
+    }
+
+    set width(newWidth){
+        if( newWidth > 0){
+            this._width = newWidth;
+        }
+        else{
+            console.error("width must be a positive");
+        }
+    }
+
+    set height(newHeight){
+        if( newHeight > 0){
+            this._height = newHeight;
+        }
+        else{
+            console.error("height must be a positive");
+        }
+    }
+
+    //add addtional logic
+    get width(){
+        return `${this._width.toFixed(1)}cm`;
+    }
+
+    get height(){
+        return `${this._height.toFixed(1)}cm`;
+    }
+
+    get area(){
+        return `${(this._width * this._height).toFixed(1)}cm`;
+    }
+}
+
+//create an instance of Rectangle
+const rectangle = new Rectangle(11, 5);
+
+// using setter, we can even update those values later
+rectangle.width = -3;
+rectangle.height = "pizza";
+
+console.log(rectangle.width);
+console.log(rectangle.height);
+
+//access a property that doesn’t necessarily exist
+console.log(rectangle.area);
+
+
+
+example2:
+1. create a class and assign its parameters
+
+class Person{
+    constructor(firstName, lastName, age){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+    }
+}
+
+const person = new Person(420, 69, "pizza");
+
+console.log(person.firstName);
+console.log(person.lastName);
+console.log(person.age);
+
+
+2. use setter. in this case, we have to use if-else to check the type
+
+class Person{
+    constructor(firstName, lastName, age){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+    }
+
+    set firstName(newFirstName){
+        if(typeof newFirstName === "string" && newFirstName.length > 0){
+            this._firstName = newFirstName;
+        }
+        else{
+            console.error("First name must be a non-empty string");
+        }
+    }
+
+    set lastName(newLastName){
+        if(typeof newLastName === "string" && newLastName.length > 0){
+            this._lastName = newLastName;
+        }
+        else{
+            console.error("Last name must be a non-empty string");
+        }
+    }
+
+    set age(newAge){
+        if(typeof newAge === "number" && newAge >= 0){
+            this._age = newAge;
+        }
+        else{
+            console.error("Age must be a non-negative number");
+        }
+    }
+}
+
+//const person = new Person(420, 69, "pizza"); //error warning
+const person = new Person("Antonia", "Porsild", 27);
+
+console.log(person.firstName);
+console.log(person.lastName);
+console.log(person.age);
+
+
+3. even though we don’t have any errors, the properties aren’t readable
+4. that’s why we need getter
+
+get firstName(){
+        return this._firstName;
+    }
+    get lastName(){
+        return this._lastName;
+    }
+    get fullName(){
+        return this._firstName + " " +     this._lastName;
+    }
+    get age(){
+        return this._age;
+    }
+
+
+
+All Example2 Code:
+class Person{
+    constructor(firstName, lastName, age){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+    }
+
+    set firstName(newFirstName){
+        if(typeof newFirstName === "string" && newFirstName.length > 0){
+            this._firstName = newFirstName;
+        }
+        else{
+            console.error("First name must be a non-empty string");
+        }
+    }
+
+    set lastName(newLastName){
+        if(typeof newLastName === "string" && newLastName.length > 0){
+            this._lastName = newLastName;
+        }
+        else{
+            console.error("Last name must be a non-empty string");
+        }
+    }
+
+    set age(newAge){
+        if(typeof newAge === "number" && newAge >= 0){
+            this._age = newAge;
+        }
+        else{
+            console.error("Age must be a non-negative number");
+        }
+    }
+
+    get firstName(){
+        return this._firstName;
+    }
+
+    get lastName(){
+        return this._lastName;
+    }
+
+    get fullName(){
+        return this._firstName + " " + this._lastName;
+    }
+
+    get age(){
+        return this._age;
+    }
+}
+
+//const person = new Person(420, 69, "pizza"); //error warning
+const person = new Person("Antonia", "Porsild", 27);
+
+console.log(person.firstName);
+console.log(person.lastName);
+console.log(person.age);
+
+
+
+
+
+
+
+
