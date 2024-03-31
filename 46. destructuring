@@ -1,0 +1,192 @@
+1. Destructuring =  extract values from arrays and objects, 
+then assign them to variables in a convenient way
+
+[] = to perform array destructuring
+{} = to perform object destructuring
+
+
+example1 SWAP THE VALUE OF TWO VARIABLES
+
+let a = 1;
+let b = 2;
+
+[a, b] = [b, a];
+
+console.log(a);
+console.log(b);
+
+result:
+2
+1
+
+
+example2 SWAP 2 ELEMENTS IN AN ARRAY
+
+const colors = ['red', 'green', 'blue', 'black', 'white'];
+
+[colors[0], colors[4]] = [colors[4], colors[0]]
+
+console.log(colors);
+
+result:
+[ 'white', 'green', 'blue', 'black', 'red' ]
+
+
+
+example3 ASSIGN ARRAY ELEMENTS TO VARIABLES
+
+const colors = ['red', 'green', 'blue', 'black', 'white'];
+
+const [firstColor, secondColor, thirdColor] = colors;
+
+console.log(firstColor);
+console.log(secondColor);
+console.log(thirdColor);
+
+result:
+red
+green
+blue
+
+
+
+const colors = ['red', 'green', 'blue', 'black', 'white'];
+
+const [firstColor, secondColor, thirdColor, ...extraColors] = colors;
+
+console.log(firstColor);
+console.log(secondColor);
+console.log(thirdColor);
+console.log(extraColors);
+
+result:
+red
+green
+blue
+[ 'black', 'white' ]
+
+
+
+const colors = ['red', 'green', 'blue', 'black', 'white'];
+
+const [...extraColors] = colors;
+
+console.log(extraColors);
+
+[ 'red', 'green', 'blue', 'black', 'white' ]
+
+
+
+example4 EXTRACT VALUES FROM OBJECTS
+
+const person1 = {
+    firstName: 'Spongebob',
+    lastName: 'Squarepants',
+    age: 30,
+    job: "Fry cook",
+  };
+ 
+  const person2 = {
+    firstName: 'Patrick',
+    lastName: 'Star',
+    age: 34
+  };
+
+  const {firstName, lastName, age, job} = person1;
+  console.log(firstName)
+  console.log(lastName)
+  console.log(age)
+  console.log(job)
+
+
+result:
+Spongebob
+Squarepants
+30
+Fry cook
+
+
+const person1 = {
+    firstName: 'Spongebob',
+    lastName: 'Squarepants',
+    age: 30,
+    job: "Fry cook",
+  };
+ 
+  const person2 = {
+    firstName: 'Patrick',
+    lastName: 'Star',
+    age: 34
+  };
+
+  const {firstName, lastName, age, job} = person2;
+  console.log(firstName)
+  console.log(lastName)
+  console.log(age)
+  console.log(job)
+
+result:
+Patrick
+Star
+34
+undefined
+
+
+NOTE:
+you can set default values when using destructuring
+
+ const {firstName, lastName, age, job="unemploy"} = person2;
+  console.log(firstName)
+  console.log(lastName)
+  console.log(age)
+  console.log(job)
+
+Patrick
+Star
+34
+unemploy
+
+
+example5 DESTRUCTURING IN FUNCTION PARAMETERS
+
+1. we can pass an object to a function and destructure it when it’s passed in 
+2. with the parameters, we’ll use destructuring 
+3. we’re destructuring an object we need a set of curly braces {}
+
+
+//create a function
+function displayPerson({firstName, lastName, age, job="unemploy"}){
+    console.log(`name: ${firstName} ${lastName}`);
+    console.log(`age: ${age}`);
+    console.log(`job: ${job}`);
+}
+
+const person1 = {
+    firstName: 'Spongebob',
+    lastName: 'Squarepants',
+    age: 30,
+    job: "Fry cook",
+  };
+ 
+  const person2 = {
+    firstName: 'Patrick',
+    lastName: 'Star',
+    age: 34
+  };
+
+displayPerson(person1);
+displayPerson(person2);
+
+result:
+name: Spongebob Squarepants
+age: 30
+job: Fry cook
+name: Patrick Star
+age: 34
+job: unemploy
+
+
+
+
+
+
