@@ -1,0 +1,182 @@
+1. super is a keyword that used in classes to call the constructor 
+or access the properties and methods of a parent 
+(the parent is also known as the superclass)
+
+2. 'this' refers to this object
+3. 'super' refers to the parent of that object
+
+set up
+
+1. create a superclass and its subclasses.
+#file start.js
+
+//superclass
+class Animal{
+    alive = true;
+    eat(){
+        console.log("This " + this.name + " is eating")
+    }
+    sleep(){
+        console.log("This " + this.name + " is sleeping")
+    }
+}
+
+//subclass
+class Reptile extends Animal{
+}
+
+class Fish extends Animal{
+}
+
+class Mammal extends Animal{
+}
+
+
+super constructor
+2. we’ll add an empty constructor for Animal class
+3. and then add a constructor for the Reptile, Fish and Mammal class
+4. so, they will have a name, age and speed as  properties
+5. and we will assign these properties within the constructor like 
+this.name = the name that we receive
+
+#file start.js
+//superclass
+class Animal{
+    constructor(){}
+}
+
+//subclass
+class Reptile extends Animal{
+    constructor(name, age, crawlSpeed){
+        this.name = name;
+        this.age = age;
+        this.crawlSpeed = crawlSpeed;
+    }
+}
+
+class Fish extends Animal{
+    constructor(name, age, swimSpeed){
+        this.name = name;
+        this.age = age;
+        this.swimSpeed = swimSpeed;
+    }
+}
+
+class Mammal extends Animal{
+    constructor(name, age, runSpeed){
+        this.name = name;
+        this.age = age;
+        this.runSpeed = runSpeed;
+    }
+}
+
+
+6. create some object
+
+#file start.js
+//superclass
+class Animal{
+    constructor(){}
+}
+
+//subclass
+class Reptile extends Animal{
+    constructor(name, age, crawlSpeed){
+        this.name = name;
+        this.age = age;
+        this.crawlSpeed = crawlSpeed;
+    }
+}
+
+class Fish extends Animal{
+    constructor(name, age, swimSpeed){
+        this.name = name;
+        this.age = age;
+        this.swimSpeed = swimSpeed;
+    }
+}
+
+class Mammal extends Animal{
+    constructor(name, age, runSpeed){
+        this.name = name;
+        this.age = age;
+        this.runSpeed = runSpeed;
+    }
+}
+
+//create some object
+const rabbit = new Mammal("rabbit", 1, 25);
+const shark = new Fish("shark", 3, 45);
+const python = new Reptile("python", 5, 15);
+
+7. when we run this program, we have an uncaught reference error:  
+must call super constructor in derived class before accessing the this keyword 
+8. before we can use the this keyword, we have to call the constructor 
+of the parent (superclass) 
+9. we will invoke the constructor of the parent(the superclass) 
+with the super keyword within each of these respective constructors
+
+10. like this one
+
+#file start.js
+class Reptile extends Animal{
+    constructor(name, age, crawlSpeed){
+        super();
+        this.name = name;
+        this.age = age;
+        this.crawlSpeed = crawlSpeed;
+    }
+}
+
+
+11. One of the benefits of using constructors is that if there’s any properties 
+that the children all share in common. 
+we can send them to the constructor of the parent
+12. and we do need to pass in these arguments to the parent constructor
+
+#file start.js
+//superclass
+class Animal{
+    constructor(name, age){
+        this.name = name;
+        this.age = age;
+    }
+}
+
+
+//subclass
+class Reptile extends Animal{
+    constructor(name, age, crawlSpeed){
+        super(name, age);
+        this.crawlSpeed = crawlSpeed;
+    }
+}
+
+
+class Fish extends Animal{
+    constructor(name, age, swimSpeed){
+        super(name, age);
+        this.swimSpeed = swimSpeed;
+    }
+}
+
+
+class Mammal extends Animal{
+    constructor(name, age, runSpeed){
+        super(name, age);
+        this.runSpeed = runSpeed;
+    }
+}
+
+
+//create some object
+const rabbit = new Mammal("rabbit", 1, 25);
+const shark = new Fish("shark", 3, 45);
+const python = new Reptile("python", 5, 15);
+
+
+
+
+
+
+
