@@ -175,6 +175,174 @@ const shark = new Fish("shark", 3, 45);
 const python = new Reptile("python", 5, 15);
 
 
+13. let’s test this to see if it works
+
+//file index.html
+//superclass
+class Animal{
+    constructor(name, age){
+        this.name = name;
+        this.age = age;
+    }
+}
+
+//subclass
+class Reptile extends Animal{
+    constructor(name, age, crawlSpeed){
+        super(name, age);
+        this.crawlSpeed = crawlSpeed;
+    }
+}
+
+class Fish extends Animal{
+    constructor(name, age, swimSpeed){
+        super(name, age);
+        this.swimSpeed = swimSpeed;
+    }
+}
+
+class Mammal extends Animal{
+    constructor(name, age, runSpeed){
+        super(name, age);
+        this.runSpeed = runSpeed;
+    }
+}
+
+//create some object
+const rabbit = new Mammal("rabbit", 1, 25);
+const shark = new Fish("shark", 3, 45);
+const python = new Reptile("python", 5, 15);
+
+//let’s test this to see if it works
+console.log(rabbit.name);
+console.log(rabbit.age);
+console.log(rabbit.runSpeed);
+
+rabbit
+1
+25
+
+
+SUMMARY
+
+14. this is how we can use the super keyword in a class to call the constructor 
+of the parent. It helps code reusability. any properties that the children share 
+in common, the constructor of the parent can take care it so that we don’t have to
+repeat the set of code every single time for each child, we write it in one place 
+and reuse it.
+
+15. super method
+    1. another thing we can do too with the super keyword is extending a method from the parent => super method
+    2. we will create a method in our parent class
+
+    #file start.js
+//superclass
+class Animal{
+    constructor(name, age){
+        this.name = name;
+        this.age = age;
+    }
+    //we will create a method in our parent class
+    move(speed){
+        console.log(`The ${this.name} moves at a speed of ${speed}mph`)
+    }
+}
+
+    3. within each of these children classes, we’re going to extend the move method of the parent class inside method of our children classes like this
+    4. using super dot method of parent class
+
+    #file start.js
+
+//superclass
+class Animal{
+    constructor(name, age){
+        this.name = name;
+        this.age = age;
+    }
+
+
+    //we will create a method in our parent class
+    move(speed){
+        console.log(`The ${this.name} moves at a speed of ${speed} mph`)
+    }
+}
+
+
+//subclass
+class Reptile extends Animal{
+    constructor(name, age, crawlSpeed){
+        super(name, age);
+        this.crawlSpeed = crawlSpeed;
+    }
+
+
+    crawl(){
+        console.log("This " + this.name + " can crawl");
+        super.move(this.crawlSpeed);
+
+
+    }
+
+
+}
+
+
+class Fish extends Animal{
+    constructor(name, age, swimSpeed){
+        super(name, age);
+        this.swimSpeed = swimSpeed;
+    }
+
+
+    swim(){
+        console.log("This " + this.name + " can swim");
+        super.move(this.swimSpeed);
+
+
+    }
+
+
+}
+
+
+class Mammal extends Animal{
+    constructor(name, age, runSpeed){
+        super(name, age);
+        this.runSpeed = runSpeed;
+    }
+
+
+    run(){
+        console.log("This " + this.name + " can run");
+        super.move(this.runSeed);
+    }
+
+
+}
+
+
+//create some object
+const rabbit = new Mammal("rabbit", 1, 25);
+const shark = new Fish("shark", 3, 45);
+const python = new Reptile("python", 5, 15);
+
+
+//let’s test this to see if it works
+shark.swim();
+
+
+result:
+This shark can swim
+The shark moves at a speed of 45 mph
+
+
+
+
+    
+
+
+
+
 
 
 
