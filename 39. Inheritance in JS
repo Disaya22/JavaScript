@@ -88,7 +88,7 @@ const rabbit = new Mammal();
 rabbit.eat();
 rabbit.sleep();
 rabbit.jump();
-Shark.jump();
+Shark.jump();  //cause an error cuz there is no jump method in fish class
 
 We will get:
 This Rabbit is eating
