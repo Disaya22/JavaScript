@@ -1,0 +1,149 @@
+nested object
+
+nested-object is an object inside of another object.
+Allows you to represent more complex data structures
+Child object is enclosed by a Parent object
+for example, Person{ Address{}, ContactInfo{} }
+ShoppingCart{ Keyboard{}, Mouse{}, Monitor{} }
+
+example1
+
+1. create an object
+
+const person = {
+    fullName: "Antonia Porsild",
+    age: 27,
+    isStudent: true,
+    hobbies: ["karate", "boxing", "cooking"],
+    address: {
+        street: "Pahol Yothin",
+        city: "Bangkok",
+        country: "Thailand"
+    }
+}
+
+console.log(person.fullName);
+console.log(person.age);
+console.log(person.isStudent);
+console.log(person.hobbies[0]);
+console.log(person.address.city);
+
+
+2. we can use for loop
+const person = {
+    fullName: "Antonia Porsild",
+    age: 27,
+    isStudent: true,
+    hobbies: ["karate", "boxing", "cooking"],
+    address: {
+        street: "Pahol Yothin",
+        city: "Bangkok",
+        country: "Thailand"
+    }
+}
+
+for(const property in person.address){
+    console.log(person.address[property]);
+}
+
+
+result:
+Pahol Yothin
+Bangkok
+Thailand
+
+
+
+example2
+
+1. create a class and a constructor inside a class
+
+class Address{
+    constructor(street, city, country){
+        this.street = street;
+        this.city = city;
+        this.country = country;
+    }
+}
+
+
+2. Now, create another class that also has a constructor
+3. we use rest parameter to pass variable into an array
+
+class Person{
+    constructor(name, age, ...address){
+        this.name = name;
+        this.age = age;
+        //we're going to call the constructor of our address class
+        //and pass in our address by utilizing the spread operator to spread our address
+        //we'll send our address object which are street, city, country
+        this.address = new Address(...address);
+    }
+}
+
+
+class Address{
+    constructor(street, city, country){
+        this.street = street;
+        this.city = city;
+        this.country = country;
+    }
+}
+
+
+4. create some instances
+
+class Person{
+    constructor(name, age, ...address){
+        this.name = name;
+        this.age = age;
+        //we're going to call the constructor of our address class
+        //and pass in our address by utilizing the spread operator to spread our address
+        //we'll send our address object which are street, city, country
+        this.address = new Address(...address);
+    }
+}
+
+
+class Address{
+    constructor(street, city, country){
+        this.street = street;
+        this.city = city;
+        this.country = country;
+    }
+}
+
+
+//create some instance
+const person1 = new Person("Antonia", 27, "Pahol Yothin", "Bangkok","Thailand")
+
+const person2 = new Person("Patrick", 37, "128 Conch St.","Bikini Bottom", "Int. Waters");
+
+const person3 = new Person(" Squidward", 45, "126 Conch St.", "Bikini Bottom", "Int. Waters");
+
+
+console.log(person3.address);
+
+
+
+result:
+Address {
+  street: '126 Conch St.',
+  city: 'Bikini Bottom',  
+  country: 'Int. Waters'  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
