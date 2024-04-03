@@ -1,0 +1,90 @@
+#file index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="box1" class="box">
+        <p>Box1</p>
+    </div>
+
+    <div id="box2" class="box">
+        <p>Box2</p>
+    </div>
+
+    <div id="box3" class="box">
+        <p>Box3</p>
+    </div>
+
+    <div id="box4" class="box">
+        <p>Box4</p>
+    </div>
+   
+    <script src="start.js"></script>
+</body>
+</html>
+
+
+
+#file style.css
+.box{
+    border: 3px solid;
+    width: 100%;
+    height: 125px;
+}
+
+
+
+#file start.js
+H1 item
+
+// STEP 1 CREATE THE ELEMENT
+//then as a string, pass in the type of the element we want to create
+const newH1 = document.createElement("h1");
+
+
+// STEP 2 ADD ATTRIBUTES/PROPERTIES
+// newH1.textContent = "I like pizza!";
+
+
+// newH1.id = "myH1";
+// newH1.style.color = "tomato";
+// newH1.style.textAlign = "center";
+
+
+// STEP 3 APPEND ELEMENT TO DOM
+// document.body.append(newH1); //add from bottom, this element will be the last child
+// document.body.prepend(newH1); //add from top, this element will be the first child
+
+
+//next example, we will select box1 as a parent
+//document.getElementById("box1").append(newH1); //newH1 will be the last child of box1
+//document.getElementById("box4").prepend(newH1);  //newH1 will be the first child of box1
+
+
+// const box2 = document.getElementById("box2");
+// document.body.insertBefore(what we trying to add, the target we're selecting)
+// document.body.insertBefore(newH1, box2);
+
+
+//what if these elements dont have ID
+//so, we should use selectorAll to select everythings that has a box class
+// const boxes = document.querySelectorAll(".box");
+// document.body.insertBefore(newH1, boxes[2]);
+//current element is our nodelist of boxes,
+//so we can access the specific element from this nodelist with an index
+
+
+
+
+// REMOVE HTML ELEMENT
+//document.body.removeChild(newH1);
+
+
+//if we add an element by specifying ID, we should get an ID before removing
+//document.getElementById("box1").removeChild(newH1);
+
