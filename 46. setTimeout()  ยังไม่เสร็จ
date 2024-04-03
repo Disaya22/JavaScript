@@ -1,0 +1,7 @@
+1. setTimeout() is a function in JS that allows you 
+to schedule the execution of a function after an amount of time
+
+2. Times are approximate.
+
+3. setTimeout(callback, delay)
+
