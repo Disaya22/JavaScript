@@ -1,0 +1,106 @@
+1. sorting() is a method used to sort elements of an array in place.
+
+2. sorts elements as strings in lexicographic order, not alphabetical
+
+3. alphabetical means alphabet + numbers + symbols as strings
+
+example1:
+
+  1. let’s say we have an array 
+  2. in order to sort this array, we type array’s name.sort()
+
+#file start.js
+
+fruits = ["apple", "orange", "pineapple", "coconut"];
+fruits.sort();
+console.log(fruits);
+
+result:
+[ 'apple', 'coconut', 'orange', 'pineapple' ]
+
+
+  3. what if our array is numbers
+
+nums = [1, 44, 7, 12, 445, 655, 10, 23];
+nums.sort();
+console.log(nums);
+
+result:
+[ 1,  10,  12, 23, 44, 445, 655,  7 ]
+
+
+  4. nums = [1, 44, 7, 12, 445, 655, 10, 23];
+
+    nums.sort((a,b) => a - b);
+    console.log(nums);
+    result: [ 1,  7,  10,  12, 23, 44, 445, 655]
+
+
+    nums.sort((a,b) => b - a);
+    console.log(nums);
+    result: [655, 445, 44, 23,12,  10,  7,  1]
+
+
+
+example2:
+
+#file start.js
+
+const missUniverse = [{Country: "Thailand",age: 27, place: 2},
+                      {Country: "Nicaragua",age: 24, place: 1},
+                      {Country: "Australia",age: 21, place: 3}]
+
+missUniverse.sort((a,b) => a.age - b.age);
+console.log(missUniverse);
+
+result:
+[
+  { Country: 'Australia', age: 21, place: 3 },
+  { Country: 'Nicaragua', age: 24, place: 1 },
+  { Country: 'Thailand', age: 27, place: 2 }
+]
+
+
+#file start.js
+const missUniverse = [{Country: "Thailand",age: 27, place: 2},
+                      {Country: "Nicaragua",age: 24, place: 1},
+                      {Country: "Australia",age: 21, place: 3}]
+
+missUniverse.sort((a,b) => a.Country - b.Country);
+console.log(missUniverse);
+
+result:
+[
+  { Country: 'Thailand', age: 27, place: 2 },
+  { Country: 'Nicaragua', age: 24, place: 1 },
+  { Country: 'Australia', age: 21, place: 3 }
+]
+
+  it doesn’t make sense!!
+  1. if we want to sort by a property that contains a string 
+  in an object. There’s a difference formula
+
+  #file start.js
+  const missUniverse = [{Country: "Thailand",age: 27, place: 2},
+                      {Country: "Nicaragua",age: 24, place: 1},
+                      {Country: "Australia",age: 21, place: 3}]
+
+missUniverse.sort((a,b) => a.Country.localeCompare(b.Country));
+console.log(missUniverse);
+
+result:
+[
+  { Country: 'Australia', age: 21, place: 3 },
+  { Country: 'Nicaragua', age: 24, place: 1 },
+  { Country: 'Thailand', age: 27, place: 2 }  
+]
+
+
+
+
+
+
+
+
+
+
