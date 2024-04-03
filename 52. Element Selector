@@ -1,0 +1,193 @@
+1. element selector is a method used to target and manipulate HTML elements
+
+2. they allow you to select one or multiple HTML elements from the DOM (Document Object Model)
+
+3. once your select your element or elements, 
+you can make any sort of changes that you would like
+
+
+1. document.getElementById()
+2. document.getElementsClassName()
+3. document.getElementsByTagName()
+4. document.querySelector()
+5. document.querySelectorAll()
+
+
+1. document.getElementById()
+    it returns Element or Null
+
+
+2. document.getElementsClassName()
+    1. it return an HTML collection 
+    2. HTML collection is similar to an array but it’s limited in the built-in methods that it has 
+    3. document.getElementsClassName(), it will select all matching element 
+    that share this class
+    4. if we want to applied array methods to this HTML collection, 
+    we should cast its type to an array
+
+
+#file index.html
+<div class="fruits">Apple</div>
+    <div class="fruits">Banana</div>
+    <div class="fruits">Coconut</div>
+
+
+#file start.js
+const fruitsElem = document.getElementsByClassName("fruits");
+console.log(fruitsElem);
+
+//access each element by index
+fruitsElem[0].style.backgroundColor = "yellow";
+
+//HTML collections are iterable, we can iterate them with
+//an enhanced for loop
+for (let fruit of fruitsElem){
+    fruit.style.backgroundColor = "yellow";
+}
+
+//HTML collection don't have a built-in forEach method
+//if we attempt to use our HTML collection of fruitsElem
+//fruitsElem.forEach();
+//we'll get a type error
+//we must cast our HTML collection as an array
+
+Array.from(fruitsElem);
+
+//this will return a new array of fruitsElem
+//then you can follow this with forEach() method
+Array.from(fruitsElem).forEach( fruit  => {
+    fruit.style.backgroundColor = "lightgreen";
+})
+
+
+
+3. document.getElementsByTagName()
+    1. it returns an HTML collection 
+    2. document.getElementsByTagName(), it will select all elements 
+    with a matching tag name throughout your document
+
+
+#file index.html
+<h4>Bakery</h4>
+    <ul>
+        <li>cake</li>
+        <li>cookie</li>
+        <li>pie</li>
+        <li>bread</li>
+    </ul>
+<h4>Savory</h4>
+    <ul>
+        <li>soup</li>
+        <li>salad</li>
+        <li>stew</li>
+        <li>steak</li>
+    </ul>
+
+
+#file start.js
+const h4Elems = document.getElementsByTagName("h4");
+const liElems = document.getElementsByTagName("li")
+
+console.log(h4Elem);
+
+//access individual elements of this HTML collection by an index
+h4Elem[0].style.backgroundColor = "yellow";
+
+//an enhanced for loop
+for (let h4 of h4Elems){
+     h4.style.backgroundColor = "yellow";
+}
+for (let li of liElems){
+    li.style.backgroundColor = "lightgreen";
+}
+
+//HTML collection don't have a built-in forEach method
+//we must cast our HTML collection as an array
+Array.from(h4Elems).forEach(h4 => {
+        h4.style.backgroundColor = "yellow";
+});
+
+Array.from(liElems).forEach(li => {
+    li.style.backgroundColor = "lightblue";
+});
+
+
+
+
+4. document.querySelector()
+    1. FIRST ELEMENT OR NULL(if it doesn't find any matches )
+
+#file index.html
+<h4>Bakery</h4>
+    <ul>
+        <li>cake</li>
+        <li>cookie</li>
+        <li>pie</li>
+        <li>bread</li>
+    </ul>
+  <h4>Savory</h4>
+    <ul>
+        <li>soup</li>
+        <li>salad</li>
+        <li>stew</li>
+        <li>steak</li>
+    </ul>
+
+
+#file start.js
+
+const element = document.querySelector("h4");
+
+element.style.backgroundColor = "yellow";
+
+console.log(element);
+//it will return null if it doesn't exist
+
+
+
+5. document.querySelectorAll()
+    1. it returns NODELIST
+    2. NODELIST which is similar to an HTML collection except it has 
+    built-in methods similar to arrays
+    3. however nodelists are static, HTML collections are live
+    4. since nodelists are static, they do not update automatically 
+    in the DOM but HTML collection ,which live, will do 
+
+#file index.html
+<div class="fruits">Apple</div>
+<div class="fruits">Banana</div>
+<div class="fruits">Coconut</div>
+<h4>Bakery</h4>
+  <ul>
+        <li>cake</li>
+        <li>cookie</li>
+        <li>pie</li>
+        <li>bread</li>
+  </ul>
+<h4>Savory</h4>
+  <ul>
+        <li>soup</li>
+        <li>salad</li>
+        <li>stew</li>
+        <li>steak</li>
+  </ul>
+
+
+#file start.js
+//create a nodelist
+const foodElem = document.querySelectorAll("li");
+
+//access this nodelist by an index number
+foodElem[0].style.backgroundColor = "yellow";
+
+console.log(foodElem);
+
+
+foodElem.forEach(food => {
+    food.style.backgroundColor = "pink";
+});
+
+
+
+
+
