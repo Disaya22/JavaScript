@@ -1,0 +1,5 @@
+1. console.time() is a tool that allows you to measure the time it takes for a section if code or process to execute 
+
+How long does the process take?
+
+2. Great for identifying performance “bottlenecks
