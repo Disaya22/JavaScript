@@ -1,0 +1,142 @@
+1. DOM navigation is the process of navigation through the structure 
+of an HTML document using JS
+
+
+// .firstElementChild
+// .lastElementChild
+// .nextElementSibling
+// .previousElementSibling
+// .parentElement
+// .children
+
+
+#file index.html for first and lastElementChild
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h4 >Bakery</h4>
+    <ul id="bakeryList">
+        <li>cake</li>
+        <li>cookie</li>
+        <li>pie</li>
+        <li>bread</li>
+    </ul>
+
+    <h4>Savory</h4>
+    <ul id="savoryList">
+        <li>soup</li>
+        <li>salad</li>
+        <li>stew</li>
+        <li>steak</li>
+    </ul>
+
+    <h4>Fruits</h4>
+    <ul id="fruitList">
+        <li>apple</li>
+        <li>orange</li>
+        <li>grape</li>
+        <li>coconut </li>
+    </ul>
+    <script src="start.js"></script>
+</body>
+</html>
+
+
+#file index.html for .nextElementSibling
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h4 >Bakery</h4>
+    <ul id="bakeryList">
+        <li id="cake">cake</li>
+        <li id="cookie">cookie</li>
+        <li id="pie">pie</li>
+    </ul>
+
+    <h4>Savory</h4>
+    <ul id="savoryList">
+        <li id="soup">soup</li>
+        <li id="stew">stew</li>
+        <li id="steak">steak</li>
+    </ul>
+    
+    <h4>Fruits</h4>
+    <ul id="fruitList">
+        <li id="apple">apple</li>
+        <li id="orange">orange</li>
+        <li id="cake">grape</li>
+    </ul>
+    <script src="start.js"></script>
+</body>
+</html>
+
+
+
+#file start.js
+
+1. .firstElementChild
+const element = document.getElementById("fruitList");
+const firstChild = element.firstElementChild;
+firstChild.style.backgroundColor = "yellow";
+
+//we'll use querySelectorAll to select all the first children
+//of all matching elements
+const element = document.querySelectorAll("ul");
+element.forEach(ulElem => {
+    const firstChild = ulElem.firstElementChild;
+    firstChild.style.backgroundColor = "yellow";
+});
+
+2. .lastElementChild
+//access the last element child
+const element = document.getElementById("fruitList");
+const lastChild = element.lastElementChild;
+lastChild.style.backgroundColor = "yellow";
+
+const element = document.querySelectorAll("ul");
+element.forEach(ulElem => {
+    const lastChild = ulElem.lastElementChild;
+    lastChild.style.backgroundColor = "yellow";
+});
+
+3. .nextElementSibling
+const element = document.getElementById("savoryList");
+const nextSibling = element.nextElementSibling;
+nextSibling.style.backgroundColor = "pink";
+
+4. .previousElementSibling
+const element = document.getElementById("savoryList");
+const prevSibling = element.previousElementSibling;
+prevSibling.style.backgroundColor = "yellow";
+
+5. .parentElement
+const element = document.getElementById("orange");
+const parent = element.parentElement;
+parent.style.backgroundColor = "pink";
+
+6. .children
+const element = document.getElementById("savoryList");
+const children = element.children;
+
+console.log(children);
+//when we access the children of an element, it will return
+//an HTML collection
+
+//HTML collections don't have a built-in for each method
+//we need to cast it as an array using form()
+Array.from(children).forEach( child => {
+    child.style.backgroundColor = "yellow";
+})
+
+children[1].style.backgroundColor = "pink"
