@@ -1,0 +1,131 @@
+#file start.js
+
+//bring HTML id into JavaScript
+    const totalAmount = document.getElementById("total-amount");
+    const principalInput = document.getElementById("principal");
+    const rateInput = document.getElementById("rate");
+    const yearsInput = document.getElementById("years");
+
+
+    //get the values from form input
+    //type conversion into number type
+    let principal = Number(principalInput.value);
+    let rate = Number(rateInput.value / 100); //change to percent
+    let years = Number(yearsInput.value);
+
+
+//check variable whether "it's less than 0 or not a number" or not?
+    if(principal < 0 || isNaN(principal)){
+        principal = 0;
+        principalInput.value = 0;
+    }
+    if(rate < 0 || isNaN(rate)){
+        rate = 0;
+        rateInput.value = 0;
+    }
+    if(years < 0 || isNaN(years)){
+        years = 0;
+        yearsInput.value = 0;
+    }
+
+//math operation
+    //const result = principal * Math.pow((1 + rate / 1), 1 * years)
+   
+    function interest(x){
+        for(let i = 1; i<=years; i++){
+            x = x + (x*rate);
+        }
+        return x;
+    }
+
+
+    //totalAmount.textContent = result.toLocaleString(undefined, {style: "currency", currency: "USD"});
+
+
+    totalAmount.textContent = interest(principal); //.toLocaleString(undefined, {style: "currency", currency: "USD"});
+
+}
+
+
+
+#file index.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Interest Calculator</h1>
+    <form>
+        <label>Principal Amount</label>
+        <input type="number" id="principal">
+        <label for="rate">Interest Rate: </label>
+        <input type="number" id="rate">
+        <label for="years">Years: </label>
+        <input type="number" id="years">
+        <button type="button" onclick="calculate()">submit</button>
+        <p id="total">Total: <span id="total-amount">$0.00</span></p>
+    </form>
+    <script src="start.js"></script>
+</body>
+</html>
+
+
+#file style.css
+
+body{
+    font-family: cursive, sans-serif;
+    background-color: hsl(0, 0%, 95%);
+}
+h1{
+    color: hsl(0, 0%, 30%);
+    font-size: 3em;
+    text-align: center;
+}
+form{
+    background-color: white;
+    max-width: 350px;
+    margin: auto;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px hsla(0, 0%, 0%, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+label{
+    font-size: 2em;
+    font-weight: bold;
+}
+input{
+    width: 50%;
+    text-align: center;
+    font-size: 2em;
+    border: 2px solid hsl(0, 0%, 90%);
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+button{
+    background-color: hsl(120, 100%, 40%);
+    color: white;
+    font-size: 1.5em;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+button:hover{
+    background-color: hsl(120, 100%, 30%);
+}
+#total{
+    font-size: 2em;
+}
+#total-amount{
+    color: hsl(120, 100%, 35%);
+    font-weight: bold;
+}
