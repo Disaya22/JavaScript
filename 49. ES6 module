@@ -1,0 +1,53 @@
+1. ES6 module is an external file that contains reusable code 
+that can be imported into other JavaScript files.
+
+2. write reusable code for many different apps
+
+3. ES6 module can contain variables, classes, functions …and more
+
+4. Introduced as part of ECMAScript 2015 update
+
+
+#file mathUtil.js
+const PI = 3.1415;
+function getCircumference(radius){
+    return 2 * PI * radius;
+}
+function getArea(radius){
+    return PI * radius * radius;
+}
+function getVolume(radius){
+    return 4 * PI * radius * radius;
+}
+
+
+5. we can reuse these variables and functions for any JS program by importing them
+6. so we prefix them with the export keyword
+
+#file mathUtil.js
+export const PI = 3.1415;
+export function getCircumference(radius){
+    return 2 * PI * radius;
+}
+export function getArea(radius){
+    return PI * radius * radius;
+}
+export function getVolume(radius){
+    return 4 * PI * radius * radius;
+}
+
+
+#file start.js
+1. we will import functions and variable from files mathUtil.js by this command
+2. now we can use functions and variable as if they were already part of this file
+
+
+import {PI, getArea, getCircumference, getVolume} from './mathUtil.mjs';
+//example
+console.log(PI);
+let result = getArea(10);
+console.log(result);
+
+
+
+
