@@ -1,0 +1,10 @@
+1. eventListener
+
+2. In this section, we’ll discuss about:
+      1. keydown occurs when you press down on a key.
+      2. keyup occurs when you release a key.
+      3. keypress but this event is incompatible with web browser, 
+      so we should avoid using this.
+
+3. to add event listener you’ll use 
+      .addEventListener(event type, callback)
