@@ -1,0 +1,123 @@
+1. EventListener listens for specific events to create interactive web pages
+
+2. In this section, we’ll discuss about
+      1. 'click' events when we click on something
+      2. 'mouseover' is when we hover over something 
+      3. 'mouseout' is when we’re hovering over something and then leave that element
+
+3. to add event listener you’ll use 
+    .addEventListener(event type, callback fn (what do you want to do when your interact))
+
+
+#file index.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="myBox">
+        Click Me 😀
+    </div>
+    <button id="myButton">
+        click Me
+    </button>
+
+    <script src="start.js"></script>
+</body>
+</html>
+
+
+#file style.css
+#myBox{
+    background-color: lightgreen;
+    width: 300px;
+    height: 300px;
+    font-size: 4.1rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+#myButton{
+    font-size: 3rem;
+    margin-top: 10px;
+}
+
+
+#file start.js
+
+1. bring HTML into JS.
+const myBox = document.getElementById("myBox");
+const myButton = document.getElementById("myButton");
+
+
+2. add event to myBox.
+myBox.addEventListener("click", changeColor);
+
+
+3. we'll define a function to change bg color
+which is going to be one parameter =>  event
+
+4. event is an object that contains information about sth, 
+it's provided to us automatically
+by the web browser when an event occurs like we click on sth.
+
+function changeColor(event){
+    //console.log(event);
+    event.target.style.backgroundColor = "pink";
+    event.target.textContent = "Ouch! 🤕";
+}
+
+
+5. We can define a function as an arrow function.
+myBox.addEventListener("click", event => {
+    event.target.style.backgroundColor = "pink";
+    event.target.textContent = "It's Hurt! 🤕";
+});
+
+
+myBox.addEventListener("mouseover", event=>{
+    event.target.style.backgroundColor = "lightblue";
+    event.target.textContent = "Don't do it 😲";
+});
+
+
+myBox.addEventListener("mouseout", event => {
+    event.target.style.backgroundColor = "lightgreen";
+    event.target.textContent = "Click Me 😀";
+});
+
+
+6. control with button
+event belongs to myButton
+we should change event to myBox id
+
+myButton.addEventListener("click", event => {
+    myBox.style.backgroundColor = "pink";
+    myBox.textContent = "It's Hurt! 🤕";
+});
+
+
+myButton.addEventListener("mouseover", event=>{
+    myBox.style.backgroundColor = "lightblue";
+    myBox.textContent = "Don't do it 😲";
+});
+
+
+myButton.addEventListener("mouseout", event => {
+    myBox.style.backgroundColor = "lightgreen";
+    myBox.textContent = "Click Me 😀";
+});
+
+
+
+
+
+
+
