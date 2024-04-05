@@ -1,4 +1,4 @@
-1. eventListener
+1. eventListener listens for specific events to create interactive web pages.
 
 2. In this section, we’ll discuss about:
       1. keydown occurs when you press down on a key.
@@ -8,3 +8,123 @@
 
 3. to add event listener you’ll use 
       .addEventListener(event type, callback)
+
+
+
+#file index.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="myBox">
+        😀
+    </div>
+    <script src="start.js"></script>
+</body>
+</html>
+
+
+
+#file style.css
+
+#myBox{
+    background-color: lightgreen;
+    width: 200px;
+    height: 200px;
+    font-size: 7.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+body{
+    margin: 0;
+}
+
+
+
+#file start.js
+
+const myBox = document.getElementById("myBox");
+
+
+example 1:
+// document.addEventListener("keydown", event => {
+//     myBox.textContent = "❤";
+//     myBox.style.backgroundColor = "pink";
+// });
+
+
+example 2:
+// document.addEventListener("keyup", event => {
+//     myBox.textContent = "💕";
+//     myBox.style.backgroundColor = "pink";
+// });
+
+
+example 3:
+const moveAmount = 10;
+let x = 0;
+let y = 0;
+
+document.addEventListener("keydown", event => {
+    myBox.textContent = "😱";
+    myBox.style.backgroundColor = "pink";
+});
+
+document.addEventListener("keyup", event => {
+    myBox.textContent = "😀";
+    myBox.style.backgroundColor = "lightgreen";
+});
+
+document.addEventListener("keydown", event => {
+    //console.log(event.key);
+
+    if(event.key.startsWith("Arrow")){
+
+        //we can prevent the default behavior of a key
+        event.preventDefault();
+
+        switch(event.key){
+            case "ArrowUp":
+                y -= moveAmount;
+                break;
+           
+            case "ArrowDown":
+                y += moveAmount;
+                break;
+
+            case "ArrowLeft":
+                x -= moveAmount;
+                break;
+               
+            case "ArrowRight":
+                x += moveAmount;
+                break;
+        }
+
+        myBox.style.top = `${y}px`;
+        myBox.style.left = `${x}px`;
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
