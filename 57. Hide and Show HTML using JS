@@ -1,0 +1,63 @@
+#file index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button id="myButton"> HIDE </button>
+    <img id="myImg" src="sh1.jpg.jpg" width="400px">
+    <script src="start.js"></script>
+</body>
+</html>
+
+
+#file style.css
+#myButton{
+    font-size: 2em;
+}
+
+
+
+#file start.js
+
+const myButton = document.getElementById("myButton");
+const myImg = document.getElementById("myImg");
+
+myButton.addEventListener("click", event => {
+
+
+    // myImg.style.display = "none";
+    // myButton.textContent = "SHOW";
+
+
+    // if(myImg.style.display === "none"){
+    //     myImg.style.display = "block";
+    //     myButton.textContent = "HIDE";
+    // }
+    // else{
+    //     myImg.style.display = "none";
+    //     myButton.textContent = "SHOW";
+    // }
+
+
+    if(myImg.style.visibility === "hidden"){
+        myImg.style.visibility = "visible";
+        myButton.textContent = "HIDE";
+        }
+    else{
+        myImg.style.visibility = "hidden";
+        myButton.textContent = "SHOW";
+    }
+});
+
+
+
+
+
+
+
+
