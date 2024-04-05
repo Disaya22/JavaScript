@@ -1,0 +1,143 @@
+1. NodeList is a static collection of HTML elements by id or class or element.
+
+2. NodeList can be created by using querySelectorAll().
+
+3. NodeList is similar to an array, 
+but does not have a built-in method like map, filter or reduce.
+
+4. NodeList has a forEach method at least.
+
+5. NodeList won’t update automatically to reflect changes to the Dom.
+
+
+example 1:
+
+set up 
+    1. we’ll create 4 buttons with the same class and then change theirs styles.
+
+#file index.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button class="myButton">Button 1</button>
+    <button class="myButton">Button 2</button>
+    <button class="myButton">Button 3</button>
+    <button class="myButton">Button 4</button>
+    <script src="start.js"></script>
+</body>
+</html>
+
+
+
+#file style.css
+.myButton{
+    font-size: 1.5em;
+    margin:10px;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    background-color:rgb(33, 238, 170);
+    color:white;
+}
+
+
+How to create a nodeList 
+Add HTML/CSS properties
+CLICK event listener
+MOUSEOVER + MOOUSEOUT event listener
+Add an element 
+Remove an element
+
+
+All JavaScript Code
+
+//create a nodeList
+let buttons = document.querySelectorAll(".myButton");
+//if we use const, we can not append a new nodeList
+
+
+// console.log(buttons);
+
+
+// ---------- ADD HTML/CSS PROPERTIES ----------
+// buttons.forEach(button => {
+//     button.style.backgroundColor = "green";
+//     button.textContent += "😈" ;
+// });
+
+
+// ---------- CLICK event listener ----------
+// buttons.forEach(button => {
+//     button.addEventListener("click", event => {
+//         //object target means the button that we click on
+//         event.target.style.backgroundColor = "pink";
+//     });
+// });
+
+
+// ----------  MOUSEOVER + MOUSEOUT event listener ----------
+// buttons.forEach(button => {
+//     button.addEventListener("mouseover", event => {
+//         event.target.style.background = "rgb(20, 159, 113)"
+//     })
+// });
+//MOUSEOVER พอเอาเมาส์ออก ีจะไม่กลับไแสีเดิม
+//จึงเพิ่ม event mouseout
+
+
+// buttons.forEach(button => {
+//     button.addEventListener("mouseout", event => {
+//         event.target.style.background = "rgb(33, 238, 170)"
+//     })
+// });
+
+
+// ---------- ADD AN ELEMENT to a nodeList----------
+// const newButton = document.createElement("button"); //step1
+// newButton.textContent = "Button 5"; //step2
+// newButton.classList = "myButton"; //when working with an elements class we work with classList not class
+//step3
+// document.body.appendChild(newButton);
+//now we have 5 buttons on our web page
+//but we still have 4 nodeLists
+// console.log(buttons);
+//because NodeList is a static collection
+//it won't update automatically to reflect changes to the DOM
+//we have to manually add ti to our node list
+
+
+//to do that, we will use querySelector again
+// buttons = document.querySelectorAll(".myButton");
+
+
+// console.log(buttons);
+
+
+// ---------- REMOVE AN ELEMENT ----------
+buttons.forEach(button => {
+    button.addEventListener("click", event =>{
+        event.target.remove();
+
+
+        //console.log(buttons);
+        //when we remove the buttons from the DOM
+        //they're still within the nodeList even though they're gone
+
+
+        buttons = document.querySelectorAll(".myButton");
+        console.log(buttons);
+        //buttons now when we click on a button, it should be removed form the DOM
+        //and the nodeList
+    })
+});
+
+
+
+
