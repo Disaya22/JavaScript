@@ -1,0 +1,164 @@
+1. classList is an element property in JavaScript used to interact with an element’s list of classes meaning CSS classes
+
+2. Allows you to make reusable classes for many elements across your webpage.
+
+add()
+remove()
+toggle => remove if present, add if not present
+replace(oldClass, newClass)
+contains()
+
+
+#file index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   
+    <!-- <h1 id="h1">Hello</h1>
+    <button id="Button">Button</button> -->
+
+    <button class="Button">Button 1</button>
+    <button class="Button">Button 2</button>
+    <button class="Button">Button 3</button>
+    <button class="Button">Button 4</button>
+
+    <script src="start.js"></script>
+</body>
+</html>
+
+
+#file style.css
+
+#h1{
+    font-size: 2.5em;
+}
+#Button{
+    font-size: 1.5em;
+    margin:10px;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+}
+.enable{
+    background-color: blue;
+    color:white
+}
+.hover{
+    box-shadow: 0 0 10px hsla(0, 0%, 0%, 0.2);
+    font-weight: bold;
+}
+.disable{
+    background-color: hsl(0, 0%, 42%);
+    color: hsl(0, 86%, 57%);
+}
+.Button{
+    font-size: 1.5em;
+    margin:10px;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+}
+
+
+
+#file start.js
+
+//const myButton = document.getElementById("Button");
+
+
+// myButton.classList.add("enable");
+//ถ้าใน id ฺButton กำหนดสีไว้แล้ว จะใช้ class enable เปลี่ยนสีไม่ได้
+
+
+//myButton.classList.add("hover"); //it's work. don't do this
+
+
+//we should add EventListener
+// myButton.addEventListener("mouseover", event => {
+//     myButton.classList.add("hover");
+// });
+// myButton.addEventListener("mouseout", event => {
+//     myButton.classList.remove("hover");
+// });
+
+
+//replace()
+// const myButton = document.getElementById("Button");
+// myButton.classList.add("enable");
+// myButton.addEventListener("click", event=>{
+
+
+//     if(myButton.classList.contains("disable")){
+//         myButton.textContent += "😀";
+//     }
+//     else{
+//         myButton.classList.replace("enable", "disable");
+//     };
+// });
+
+
+//example2
+// const myButton = document.getElementById("Button");
+// const myH1 = document.getElementById("h1");
+
+// myButton.classList.add("enable");
+// myH1.classList.add("enable")
+
+// myButton.addEventListener("click", event=>{
+
+//     if(myButton.classList.contains("disable")){
+//         myButton.textContent += "😀";
+//     }
+//     else{
+//         myButton.classList.replace("enable", "disable");
+//     };
+// });
+
+// myH1.addEventListener("click", event=>{
+
+//     if(myH1.classList.contains("disable")){
+//         myH1.textContent += "😀";
+//     }
+//     else{
+//         myH1.classList.replace("enable", "disable");
+//     };
+// });
+
+//challenge round
+
+//create a nodeList
+let buttons = document.querySelectorAll(".Button");
+
+buttons.forEach(button => {
+    button.classList.add("enable");
+});
+
+buttons.forEach(button => {
+    button.addEventListener("mouseover", event=>{
+        button.classList.toggle("hover");
+    });
+});
+
+buttons.forEach(button => {
+    button.addEventListener("mouseout", event=>{
+        button.classList.toggle("hover");
+    });
+});
+buttons.forEach(button => {
+    button.addEventListener("click", event=>{
+
+        if(button.classList.contains("disable")){
+            button.textContent += "😋";
+        }
+        else{
+            button.classList.replace("enable", "disable");
+        }
+    });
+});
+
